@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+// import Topic from './Topic';
+import SplitPane from 'react-split-pane';
+import TaskCreator from './TaskCreator';
+import TaskViewer from './TaskViewer';
 
-function App() {
+//https://www.youtube.com/watch?v=lyRP_D0qCfk   --> React Calendar
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <SplitPane split="vertical" minSize={400} defautSize={400} maxSize={800}>
+    <TaskCreator />
+    <TaskViewer />
+  </SplitPane>
   );
 }
 
