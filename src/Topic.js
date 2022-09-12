@@ -8,7 +8,7 @@ class Topic extends React.Component{
         return (
             <div className="field">
                 <label>Task Topic</label>
-                <input type="text" value={this.state.topic} onChange={(e)=>this.setState({topic:e.target.value})} onBlur={(e)=>this.props.onSub(this.state.topic)} />
+                <input type="text" value={this.state.topic} onChange={(e)=>{this.setState({topic:e.target.value});this.props.onSub(e.target.value)}} /*onBlur={(e)=>this.props.onSub(this.state.topic)}*/ />
             </div>
         );
     }

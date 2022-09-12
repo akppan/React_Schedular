@@ -1,7 +1,19 @@
 import React from 'react';
-import TaskCreator from './TaskCreator';
+import { Button } from '@mui/material';
+// import TaskCreator from './TaskCreator';
 
-const TaskViewer = () => {
+const TaskViewer = (props) => {
+    console.log(props);
+    const tsks = props.tasks.map((task)=>{
+        return (
+        <tr key={task.id}>
+            <td style={{border:'1px solid black'}}>{task.topic}</td>
+            <td style={{border:'1px solid black'}}>{JSON.stringify(task.startTime)}</td>
+            <td style={{border:'1px solid black'}}>{JSON.stringify(task.endTime)}</td>
+            <td style={{border:'1px solid black'}}><Button tid={task.id} onClick={(event) => {props.dltTask(task.id)}}>Delete</Button></td>
+        </tr>
+        )
+    });
     return (
         <div className="ui container" style={{ marginTop: '10px', width:'600px', display:'flex', alignItems:'center', justifyContent:'center'}}>
               <div className="ui segment" style={{ display:'flex', alignItems:'center', justifyContent:'center'}}>
@@ -9,16 +21,11 @@ const TaskViewer = () => {
                       <tbody>
                         <tr>
                             <th style={{border:'1px solid black', width:'200px'}}>Topic</th>
-                            <th style={{border:'1px solid black', width:'200px'}}>Start Time</th>
-                            <th style={{border:'1px solid black', width:'200px'}}>End Time</th>
+                            <th style={{border:'1px solid black', width:'200px'}}>Starts At</th>
+                            <th style={{border:'1px solid black', width:'200px'}}>Ends At</th>
                             <th style={{border:'1px solid black', width:'200px'}}>Actions</th>
                         </tr>
-                        <tr>
-                            <td style={{border:'1px solid black'}}>Meeting1</td>
-                            <td style={{border:'1px solid black'}}>1PM</td>
-                            <td style={{border:'1px solid black'}}>2PM</td>
-                            <td style={{border:'1px solid black'}}>Delete</td>
-                        </tr>
+                        {tsks}
                       </tbody>
                   </table>
               </div>

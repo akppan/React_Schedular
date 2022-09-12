@@ -19,7 +19,7 @@ class Schedule extends React.Component {
     render(){
         return (
             <div>
-                <DatePicker selected={this.state.date} onChange={(val) => {this.setState({date:val});console.log(this.state.date)}} onBlur={(e)=>{this.props.onSub(this.state.date);/*console.log(this.state.date)*/}} showTimeSelect dateFormat="Pp" timeFormat="p" timeIntervals={15} />
+                <DatePicker selected={this.state.date} onChange={(val) => {this.setState({date:val});this.props.onSub(val)}} /*onClick={(e)=>{this.props.onSub(this.state.date);console.log(this.state.date)}}*/ showTimeSelect dateFormat="Pp" timeFormat="p" timeIntervals={15} />
             </div>
         )
     }    
