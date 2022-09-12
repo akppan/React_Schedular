@@ -8,8 +8,8 @@ const TaskViewer = (props) => {
         return (
         <tr key={task.id}>
             <td style={{border:'1px solid black'}}>{task.topic}</td>
-            <td style={{border:'1px solid black'}}>{JSON.stringify(task.startTime)}</td>
-            <td style={{border:'1px solid black'}}>{JSON.stringify(task.endTime)}</td>
+            <td style={{border:'1px solid black'}}>{(task.startTime.toString())}</td>
+            <td style={{border:'1px solid black'}}>{(task.endTime.toString())}</td>
             <td style={{border:'1px solid black'}}><Button tid={task.id} onClick={(event) => {props.dltTask(task.id)}}>Delete</Button></td>
         </tr>
         )

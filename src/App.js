@@ -17,16 +17,18 @@ class App  extends React.Component {
       //
     }
     else{
+      localStorage.setItem('tasks',JSON.stringify([...this.state.tasks,task]));
       this.setState({
         tasks:[...this.state.tasks,task]
       },()=>{
-        // console.log(this.state);
+        console.log(this.state);
       })
     }
   }
 
   deleteTask = (id) => {
     const newState = this.state.tasks.filter(task => task.id!==id)
+    localStorage.setItem('tasks',JSON.stringify(newState));
     this.setState({
       tasks:newState
     },()=>{
@@ -38,7 +40,8 @@ class App  extends React.Component {
     return (
       <SplitPane split="vertical" minSize={400} defautSize={400} maxSize={800}>
         <TaskCreator onCreation={this.addTasks}/>
-        <TaskViewer tasks={this.state.tasks} dltTask={this.deleteTask}/>
+        {/* <TaskViewer tasks={this.state.tasks} dltTask={this.deleteTask}/> */}
+        <TaskViewer tasks={JSON.parse(localStorage.getItem('tasks')) || []} dltTask={this.deleteTask}/>
       </SplitPane>
       );
   }
