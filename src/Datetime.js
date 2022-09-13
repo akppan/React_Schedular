@@ -2,16 +2,6 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-// const Schedule = () => {
-//     const [startDate, setStartDate] = useState(new Date());
-
-//     return (
-//         <div>
-//             <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect dateFormat="Pp" timeFormat="p" timeIntervals={15} />
-//         </div>
-//     )
-// }
-
 class Schedule extends React.Component {
 
     state = {date:''}
@@ -19,7 +9,7 @@ class Schedule extends React.Component {
     render(){
         return (
             <div>
-                <DatePicker selected={this.state.date} onChange={(val) => {this.setState({date:val});this.props.onSub(val)}} /*onClick={(e)=>{this.props.onSub(this.state.date);console.log(this.state.date)}}*/ showTimeSelect dateFormat="Pp" timeFormat="p" timeIntervals={15} />
+                <DatePicker selected={this.state.date} onChange={(val) => {this.setState({date:val});this.props.onSub(val)}} showTimeSelect dateFormat="Pp" timeFormat="p" timeIntervals={15} />
             </div>
         )
     }    

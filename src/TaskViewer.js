@@ -1,23 +1,20 @@
 import React from 'react';
-import { Button } from '@mui/material';
-// import TaskCreator from './TaskCreator';
 
 const TaskViewer = (props) => {
-    // console.log(props);
     const tsks = props.tasks.map((task)=>{
         return (
         <tr key={task.id}>
             <td style={{border:'1px solid black'}}>{task.topic}</td>
             <td style={{border:'1px solid black'}}>{(task.startTime)}</td>
             <td style={{border:'1px solid black'}}>{(task.endTime)}</td>
-            <td style={{border:'1px solid black'}}><Button tid={task.id} onClick={(event) => {props.dltTask(task.id)}}>Delete</Button></td>
+            <td style={{border:'1px solid black', textAlign:'center'}}><button className="ui inverted red button" tid={task.id} onClick={(event) => {props.dltTask(task.id)}}>Delete</button></td>
         </tr>
         )
     });
     return (
-        <div className="ui container" style={{ marginTop: '10px', width:'600px', display:'flex', alignItems:'center', justifyContent:'center'}}>
+        <div className="ui container" style={{ margin: '10px', width:'600px', display:'inline-block', alignItems:'center', justifyContent:'center'}}>
               <div className="ui segment" style={{ display:'flex', alignItems:'center', justifyContent:'center'}}>
-                  <table style={{border:'1px solid black', width:'100%', padding:'5x', borderSpacing:"5px", borderCollapse:'collapse'}}>
+                  <table className="ui celled table">
                       <tbody>
                         <tr>
                             <th style={{border:'1px solid black', width:'200px'}}>Topic</th>
