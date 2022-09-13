@@ -26,7 +26,6 @@ const MyCalendar = props => {
         var tsk = {title:task.topic,start:new Date(task.startTime),end:new Date(task.endTime)}
         Events.push(tsk)
     })
-    console.log(Events);
 
     return (
     <div style={{margin:'15px'}}>

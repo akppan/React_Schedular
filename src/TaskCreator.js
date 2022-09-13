@@ -23,8 +23,8 @@ class TaskCreator extends React.Component {
 
     onFormSubmit(event){
         event.preventDefault();
-        console.log(this.state);
         this.props.onCreation(this.state);
+        this.setState({id:'', topic:'', startTime:'', endTime:''})
     }
 
     render(){
