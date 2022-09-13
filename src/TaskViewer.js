@@ -3,13 +3,13 @@ import { Button } from '@mui/material';
 // import TaskCreator from './TaskCreator';
 
 const TaskViewer = (props) => {
-    console.log(props);
+    // console.log(props);
     const tsks = props.tasks.map((task)=>{
         return (
         <tr key={task.id}>
             <td style={{border:'1px solid black'}}>{task.topic}</td>
-            <td style={{border:'1px solid black'}}>{(task.startTime.toString())}</td>
-            <td style={{border:'1px solid black'}}>{(task.endTime.toString())}</td>
+            <td style={{border:'1px solid black'}}>{(task.startTime)}</td>
+            <td style={{border:'1px solid black'}}>{(task.endTime)}</td>
             <td style={{border:'1px solid black'}}><Button tid={task.id} onClick={(event) => {props.dltTask(task.id)}}>Delete</Button></td>
         </tr>
         )

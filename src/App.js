@@ -17,17 +17,18 @@ class App  extends React.Component {
       //
     }
     else{
-      localStorage.setItem('tasks',JSON.stringify([...this.state.tasks,task]));
+      localStorage.setItem('tasks',JSON.stringify([...JSON.parse(localStorage.getItem('tasks')),task]));
       this.setState({
         tasks:[...this.state.tasks,task]
       },()=>{
-        console.log(this.state);
+        // console.log(this.state);
       })
     }
   }
 
   deleteTask = (id) => {
-    const newState = this.state.tasks.filter(task => task.id!==id)
+    const tasksArray = JSON.parse(localStorage.getItem('tasks'));
+    const newState = tasksArray.filter(task => task.id!==id)
     localStorage.setItem('tasks',JSON.stringify(newState));
     this.setState({
       tasks:newState

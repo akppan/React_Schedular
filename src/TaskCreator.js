@@ -15,19 +15,18 @@ class TaskCreator extends React.Component {
     }
     onSearchStart = (term) => {
         // console.log(term);
-        this.setState({startTime:term})
+        this.setState({startTime:term.toString()})
     }
     onSearchEnd = (term) => {
         // console.log(term);
-        this.setState({endTime:term})
+        this.setState({endTime:term.toString()})
         this.setState({id:nanoid()})
     }
 
 
     onFormSubmit(event){
         event.preventDefault();
-        this.setState({topic:this.top,startTime:this.stD,endTime:this.enD});
-        // console.log(this.state); 
+        console.log(this.state);
         this.props.onCreation(this.state);
     }
 
